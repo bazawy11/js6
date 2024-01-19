@@ -1,5 +1,3 @@
-
-
 export class Item {
   constructor(id, title, description, source, platform, genre) {
     //   super();
@@ -9,14 +7,14 @@ export class Item {
     this.source = source;
     this.platform = platform;
     this.genre = genre;
-      this.d = function () { 
-          console.log();
-      };
+    this.d = function () {
+      console.log();
+    };
   }
 
   createCard() {
     let element = document.createElement("div");
-    element.classList.add("item", "col-lg-3", "col-md-4", "col-sm-6");
+    element.classList.add("item", "col-sm-6", "col-md-4", "col-lg-3");
     // let card = document.createElement("div");
     //   element.classList.add("card", "h-100", "bg-transparent");
 
@@ -48,18 +46,11 @@ export class Item {
             </footer>
           </div>
       `;
-      element.addEventListener("click", (eventInfo) => { 
-          console.log(eventInfo.target);
-      })
+    element.addEventListener("click", (eventInfo) => {
+      console.log(eventInfo.target);
+    });
     return element;
   }
 
-  openPage() {
-  
-}
-
-
-
-
-
+  openPage() {}
 }
