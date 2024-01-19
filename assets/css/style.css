@@ -1,0 +1,61 @@
+
+
+body {
+position: relative;
+  background-color: #272b30;
+  color: white;
+}
+
+body #top-image {
+  width: 100%;
+  object-fit: cover;
+  max-height: 30vh;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: clip;
+}
+#nav {
+  background-color: #3a497b;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+}
+
+.item{
+      transition: 0.5s;
+        filter: saturate(35%);
+
+
+}
+
+.item:hover{
+      /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); */
+      transform: scale(110%);
+              filter: saturate(150%);
+
+}
+
+figure img:hover{
+              filter: saturate(150%);
+
+}
+
+.details-screen{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 9;
+    background-color: #27282B;
+    display: none;
+}
+
+.badge{
+    background-color: rgb(65, 64, 64);
+}
+.badge:hover{
+    transform: scale(110%);
+          transition: 0.3s;
+
+}
+
