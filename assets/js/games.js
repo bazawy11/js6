@@ -17,13 +17,14 @@ export async function getGamesByCategory(gameType) {
   const response = await api.json();
 
   for (let i = 0; i < response.length; i++) {
-    let item = new Item(
-      response[i].id,
-      response[i].title,
-      response[i].short_description,
-      response[i].thumbnail,
-      response[i].platform,
-      response[i].genre
+    let item = new Item({
+      id: response[i].id,
+      title:response[i].title,
+      description:response[i].short_description,
+      source:response[i].thumbnail,
+      platform:response[i].platform,
+      genre:response[i].genre
+    }
     );
 
     row.appendChild(item.createCard());

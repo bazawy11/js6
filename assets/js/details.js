@@ -1,4 +1,5 @@
 import { gameImage } from "./main.js";
+import { Item } from "./ui.js";
 
 
 
@@ -20,9 +21,20 @@ export async function getGameByID(gameID) {
 
   console.log(response);
 
-  let game = {
-  
-}
+
+
+  let page = new Item({
+    title: response.title,
+    genre: response.genre,
+    platform: response.platform,
+    status: response.status,
+    gameURL: response.game_url,
+    fullDescription: response.description,
+    thumbnail: response.thumbnail,
+  });
+  page.openPage();
+
+
 
 
   

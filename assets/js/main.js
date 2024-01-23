@@ -1,6 +1,5 @@
 import { getGameByID } from "./details.js";
 import { getGamesByCategory, getGenreName } from "./games.js";
-import { Item } from "./ui.js";
 
 export const row = document.querySelector(".row");
 export const navItems = document.querySelectorAll(".nav-item");
@@ -20,4 +19,6 @@ export const gameLink = document.querySelector("#game-link");
 
 getGamesByCategory("mmorpg");
 getGenreName(navItems);
+
+
 

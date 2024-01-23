@@ -47,7 +47,7 @@ figure img:hover{
     position: absolute;
     z-index: 9;
     background-color: #27282B;
-    display: none;
+    /* display: none; */
 }
 
 .badge{

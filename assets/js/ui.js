@@ -1,5 +1,18 @@
+import { getGameByID } from "./details.js";
+
 export class Item {
-  constructor(id, title, description, source, platform, genre) {
+  constructor({
+    id,
+    title,
+    description,
+    source,
+    platform,
+    genre,
+    thumbnail,
+    gameURL,
+    status,
+    fullDescription,
+  }) {
     //   super();
     this.id = id;
     this.title = title;
@@ -7,9 +20,14 @@ export class Item {
     this.source = source;
     this.platform = platform;
     this.genre = genre;
-    this.d = function () {
-      console.log();
-    };
+    this.thumbnail = thumbnail;
+    this.gameURL = gameURL;
+    this.status = status;
+    this.fullDescription = fullDescription;
+
+    // this.d = function () {
+    //   console.log();
+    // };
   }
 
   createCard() {
@@ -47,10 +65,57 @@ export class Item {
           </div>
       `;
     element.addEventListener("click", (eventInfo) => {
-      console.log(eventInfo.target);
+      getGameByID(this.id);
     });
     return element;
   }
 
-  openPage() {}
+  openPage() {
+    let page = document.querySelector(".details-screen");
+
+    page.classList.remove("d-none");
+    page.innerHTML = `<section class="details">
+    <div class="container">
+    <header class="hstack justify-content-between">
+    <h1 class="text-center h3 py-4">Details Game</h1>
+    <button class="btn-close btn-close-white" id="btnClose"></button>
+    </header>
+    <div class="row g-4" id="detailsContent">
+    <div class="col-md-4">
+    <img
+              id="game-image"
+                src=${this.thumbnail}
+                class="w-100"
+                alt="image details"
+                />
+            </div>
+            <div class="col-md-8">
+            <h3 id="game-title">Title: ${this.title}</h3>
+            <p>
+            Category: <span id="game-category" class="badge text-bg-info"> ${this.genre}</span>
+              </p>
+              <p>Platform: <span id="game-OS" class="badge text-bg-info"> ${this.platform}</span></p>
+              <p class="">
+                Status: <span id="game-Status" class="badge text-bg-info"> ${this.status}</span>
+              </p>
+              <p id="game-description" class="small">
+               ${this.fullDescription}
+              </p>
+              <a
+                class="btn btn-outline-warning"
+                target="_blank"
+                id="game-link"
+                href=${this.gameURL}
+                >Show Game</a
+                >
+                </div>
+          </div>
+          </div>
+          </section>`;
+
+    let clsBtn = document.querySelector("#btnClose");
+    clsBtn.addEventListener("click", function (eventInfo) {
+      page.classList.add("d-none");
+    });
+  }
 }
